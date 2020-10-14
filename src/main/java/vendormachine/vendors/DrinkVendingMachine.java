@@ -63,19 +63,33 @@ public class DrinkVendingMachine {
         }
     }
 
-    public void giveCredit(Person user, float credit){
+    public void giveCredit(Person person, float credit){
         //TODO replace with Log4j
         System.out.println("INFO: You have entered £"+credit);
-        this.availableCredit += user.getCredit(credit);
+        this.availableCredit += person.getCredit(credit);
     }
 
     //===============================
     //===  'get'ors
     //===============================
 
+    public float getStartCredit() {
+    	return this.availableCredit;
+    }
+    
+    public BRANDS getBrand() {
+    	return this.brandName;
+    }
 
     //===============================
     //===  'set'ors
     //===============================
 
+    public void setStartCredit(float credit){
+        this.availableCredit = credit;
+    }
+
+    public void setBrand(BRANDS brand){
+        this.brandName = brand;
+    }
 }

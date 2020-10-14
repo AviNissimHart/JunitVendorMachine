@@ -1,9 +1,61 @@
 package vendormachine;
 
+import static org.junit.Assert.assertTrue;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import vendormachine.users.Person;
+import vendormachine.users.util.Wallet;
 import vendormachine.vendors.DrinkVendingMachine;
 
 public class DrinkVendingMachineTEST {
-	
+	// Resources
+			private float credit = 10.0f;
+			private Person person;
+			private static Wallet testWallet = new Wallet();
+			
+			// Keep track of tests
+			private static int activeTest = 1;
+			private static StringBuilder sBuilder = new StringBuilder();
+			private static String div = "=============================================\n";
+			
+			@Before
+			public void beforeTest() {
+				
+				// Set Default test Wallet credit
+				testWallet.setCredit(credit);
+				
+				// Start of console test format
+				sBuilder.setLength(0);
+				sBuilder
+				.append("\tTest ").append(activeTest).append("\n")
+				.append(div)
+				.append("Console:")
+				.append("Starting Credit: ").append(testWallet.getAllCredit()).append("\n");
+				
+				System.out.println(sBuilder.toString());
+				activeTest++;
+				// End of console test format
+			}
+			
+			
+			@Test
+		    public void test_giveCredit(){
+				DrinkVendingMachine dvm = new DrinkVendingMachine();
+				dvm.giveCredit(person, credit);
+		        float actual = person.getCredit(credit);
+		        assertTrue(actual == credit);
+
+		    }
+			
+			@Test
+			public void test_setStartCredit() {
+				DrinkVendingMachine dvm = new DrinkVendingMachine();
+				dvm.setStartCredit(credit);
+				float actual = dvm.getStartCredit();
+				assertTrue(actual == credit);
+			}
 	/** 
 	 * Task 2:
 	 * 	Objective:
