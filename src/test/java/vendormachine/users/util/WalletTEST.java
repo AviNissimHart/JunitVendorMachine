@@ -6,10 +6,13 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Before;
 import org.junit.Test;
 
+import vendormachine.vendors.enums.BRANDS;
+
 
 public class WalletTEST {
 	// Resources
 		private float credit = 10.0f;
+		private String brand;
 		private static Wallet testWallet = new Wallet();
 		
 		// Keep track of tests
@@ -59,5 +62,13 @@ public class WalletTEST {
 			wallet.setCredit(credit);
 			float actual = wallet.getAllCredit();
 			assertTrue(actual == credit);
+		}
+		
+		@Test
+		public void test_setBrand() {
+			Wallet wallet = new Wallet();
+			wallet.setBrand(brand);
+			String actual = wallet.getBrand(brand);
+			assertTrue(actual == brand);
 		}
 }
