@@ -1,5 +1,6 @@
 package vendormachine;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Before;
@@ -12,7 +13,7 @@ import vendormachine.vendors.DrinkVendingMachine;
 public class DrinkVendingMachineTEST {
 	// Resources
 			private float credit = 10.0f;
-			private Person person;
+			private Person person = new Person("Alyx", testWallet);;
 			private static Wallet testWallet = new Wallet();
 			
 			// Keep track of tests
@@ -43,9 +44,12 @@ public class DrinkVendingMachineTEST {
 			@Test
 		    public void test_giveCredit(){
 				DrinkVendingMachine dvm = new DrinkVendingMachine();
-				dvm.giveCredit(person, credit);
-		        float actual = person.getCredit(credit);
-		        assertTrue(actual == credit);
+//				dvm.giveCredit(person, credit);
+//		        float actual = person.getCredit(credit);
+//		        assertTrue(actual == credit);
+				 final float giveCredit =2.0f;
+			     Person user = new Person("James", new Wallet(giveCredit));
+			     assertEquals(2.0f, user.getCredit(giveCredit),0.1f);
 
 		    }
 			
