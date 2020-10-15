@@ -20,6 +20,7 @@ public class Person {
 	//===	Methods
 	//==================
     
+    // needs integration test getWallet
     public float getCredit(float retrieve){
     	// if our wallet exists.
         if(myWallet != null) {
@@ -40,6 +41,7 @@ public class Person {
         }
     }
     
+    // needs integration
     public void addCredit(float credit){
         if(myWallet != null) {
             this.myWallet.addCredit(credit);

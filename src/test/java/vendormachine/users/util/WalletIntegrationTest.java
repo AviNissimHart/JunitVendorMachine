@@ -11,7 +11,7 @@ public class WalletIntegrationTest {
 	private Wallet testWallet;
 	
 	private final float credit = 0.5f;
-	private String brand;
+	private String brand = "InFuse";
 	
 	
 	@BeforeEach
@@ -28,17 +28,25 @@ public class WalletIntegrationTest {
 	
 	@Test
 	void testAddCredit() {
-		//assertThat(component)
+		testWallet.addCredit(credit);
+		assertThat(1.0f)
+			.isEqualTo(this.testWallet.getAllCredit());
 		
 	}
 	
 	@Test
 	void testSetCredit() {
+		testWallet.setCredit(credit * 3);
+		assertThat(1.5f)
+			.isEqualTo(this.testWallet.getAllCredit());
 		
 	}
 	
 	@Test
 	void testSetBrand() {
+		testWallet.setBrand(brand);
+		assertThat(brand)
+			.isEqualTo(testWallet.getBrand());
 		
 	}
 }

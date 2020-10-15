@@ -9,7 +9,7 @@ public class Snack implements Item{
         this.price = creditCost;
     }
 
-    public Snack(String name, float creditCost){
+    public Snack(String name, float creditCost) {
         this.name = name;
         this.price = creditCost;
     }

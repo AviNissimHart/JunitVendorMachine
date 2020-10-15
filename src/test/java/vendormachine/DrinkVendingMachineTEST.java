@@ -18,6 +18,7 @@ public class DrinkVendingMachineTEST {
 			private float credit = 10.0f;
 			private Person person = new Person("Alyx", testWallet);;
 			private static Wallet testWallet = new Wallet();
+			private int arrayPosition = 1;
 			
 			// Keep track of tests
 			private static int activeTest = 1;
@@ -68,11 +69,19 @@ public class DrinkVendingMachineTEST {
 			@Test
 			public void test_selectDrink() {
 				DrinkVendingMachine dvm = new DrinkVendingMachine();
-				assertThat(DefaultSnacks.snackList[1].name)
-					.isEqualTo(dvm.selectDrink(1).name);
-		        assertThat(DefaultSnacks.snackList[1].cost())
-		        	.isEqualTo(dvm.selectDrink(1).cost());
+				dvm.setStartCredit(credit);
+				dvm.giveCredit(person, 3.5f);
+				dvm.selectDrink(arrayPosition);
 				
+				assertEquals(
+						DefaultSnacks.snackList[arrayPosition].name,
+						dvm.selectDrink(arrayPosition).name);
+				
+				assertEquals(
+						DefaultSnacks.snackList[arrayPosition].cost(),
+						dvm.selectDrink(arrayPosition).cost());
+
+				// use mockito to mock a class
 			}
 	/** 
 	 * Task 2:
