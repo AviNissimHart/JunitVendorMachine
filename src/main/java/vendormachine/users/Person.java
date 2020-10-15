@@ -7,7 +7,7 @@ public class Person {
     private String name = "";
     private Wallet myWallet = null;
 
-    public Person(String name){
+    public Person(String name) {
         this.name = name;
     }
 

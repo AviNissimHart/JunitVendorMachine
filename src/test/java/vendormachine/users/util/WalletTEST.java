@@ -67,7 +67,7 @@ public class WalletTEST {
 		public void test_setBrand() {
 			Wallet wallet = new Wallet();
 			wallet.setBrand(brand);
-			String actual = wallet.getBrand(brand);
+			String actual = wallet.getBrand();
 			assertTrue(actual == brand);
 		}
 }

@@ -1,7 +1,7 @@
 package vendormachine;
 
 
-
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -10,6 +10,7 @@ import org.junit.jupiter.api.Test;
 
 import vendormachine.users.Person;
 import vendormachine.users.util.Wallet;
+import vendormachine.vendors.DefaultSnacks;
 import vendormachine.vendors.DrinkVendingMachine;
 
 public class DrinkVendingMachineTEST {
@@ -51,7 +52,8 @@ public class DrinkVendingMachineTEST {
 //		        assertTrue(actual == credit);
 				 final float giveCredit =2.0f;
 			     Person user = new Person("James", new Wallet(giveCredit));
-			     assertEquals(2.0f, user.getCredit(giveCredit),0.1f);
+			     assertThat(2.0f)
+			     	.isEqualTo(user.getCredit(giveCredit));
 
 		    }
 			
@@ -61,6 +63,16 @@ public class DrinkVendingMachineTEST {
 				dvm.setStartCredit(credit);
 				float actual = dvm.getStartCredit();
 				assertTrue(actual == credit);
+			}
+			
+			@Test
+			public void test_selectDrink() {
+				DrinkVendingMachine dvm = new DrinkVendingMachine();
+				assertThat(DefaultSnacks.snackList[1].name)
+					.isEqualTo(dvm.selectDrink(1).name);
+		        assertThat(DefaultSnacks.snackList[1].cost())
+		        	.isEqualTo(dvm.selectDrink(1).cost());
+				
 			}
 	/** 
 	 * Task 2:
