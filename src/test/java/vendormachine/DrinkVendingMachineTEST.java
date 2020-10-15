@@ -1,10 +1,12 @@
 package vendormachine;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
-import org.junit.Before;
-import org.junit.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import vendormachine.users.Person;
 import vendormachine.users.util.Wallet;
@@ -21,7 +23,7 @@ public class DrinkVendingMachineTEST {
 			private static StringBuilder sBuilder = new StringBuilder();
 			private static String div = "=============================================\n";
 			
-			@Before
+			@BeforeEach
 			public void beforeTest() {
 				
 				// Set Default test Wallet credit

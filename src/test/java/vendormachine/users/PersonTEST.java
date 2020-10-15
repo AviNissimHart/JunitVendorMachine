@@ -1,17 +1,19 @@
 package vendormachine.users;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.nio.file.FileSystems;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
@@ -36,7 +38,7 @@ public class PersonTEST {
 	private ExtentTest test;
 	
 	
-	@BeforeClass
+	@BeforeAll
 	public static void testINITIAL() {
 		
 		Path root = FileSystems.getDefault().getPath("").toAbsolutePath();
@@ -51,7 +53,7 @@ public class PersonTEST {
 	}
 	
 	
-	@Before
+	@BeforeEach
 	public void beforeTest() {
 		
 		// Set Default test Wallet credit
@@ -157,13 +159,13 @@ public class PersonTEST {
 		assertEquals(0f, alyx.getCredit(20.0f), 0.1f);
 	}
 	
-	@After
+	@AfterEach
 	public void afterTest() {
 		System.out.println(div);
 		report.endTest(test);
 	}
 	
-	@AfterClass
+	@AfterAll
 	public static void tearDown() {		
 		report.flush();
 		report.close();

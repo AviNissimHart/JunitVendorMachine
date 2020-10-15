@@ -1,12 +1,11 @@
 package vendormachine.users.util;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
-import org.junit.Before;
-import org.junit.Test;
 
-import vendormachine.vendors.enums.BRANDS;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 
 public class WalletTEST {
@@ -20,7 +19,7 @@ public class WalletTEST {
 		private static StringBuilder sBuilder = new StringBuilder();
 		private static String div = "=============================================\n";
 		
-		@Before
+		@BeforeEach
 		public void beforeTest() {
 			
 			// Set Default test Wallet credit
